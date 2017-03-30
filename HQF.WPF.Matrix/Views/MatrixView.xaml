@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="HQF.WPF.Matrix.Views.MatrixView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label Target="{Binding ElementName=M11}">M11</Label>
+            <TextBox Name="M11" Text="{Binding M11}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Target="{Binding ElementName=M12}">M11</Label>
+            <TextBox Name="M12" Text="{Binding M12}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <Label Target="{Binding ElementName=M13}">M11</Label>
+            <TextBox Name="M13" Text="{Binding M13}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Label Target="{Binding ElementName=M21}">M11</Label>
+            <TextBox Name="M21" Text="{Binding M21}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Target="{Binding ElementName=M22}">M11</Label>
+            <TextBox Name="M22" Text="{Binding M22}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Label Target="{Binding ElementName=M23}">M11</Label>
+            <TextBox Name="M23" Text="{Binding M23}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <Label Target="{Binding ElementName=M31}">M11</Label>
+            <TextBox Name="M31" Text="{Binding M31}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label Target="{Binding ElementName=M32}">M11</Label>
+            <TextBox Name="M32" Text="{Binding M32}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Label Target="{Binding ElementName=M33}">M11</Label>
+            <TextBox Name="M33" Text="{Binding M33}"></TextBox>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
