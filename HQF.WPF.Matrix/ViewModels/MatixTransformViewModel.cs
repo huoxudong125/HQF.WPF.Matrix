@@ -36,21 +36,22 @@ namespace HQF.WPF.Matrix.ViewModels
 
         private void ApplyD3Matrixs()
         {
+            var transformGroup = new TransformGroup();
             foreach (var d3Matrix in D3Matrixs)
             {
-                CurrentRectangle.RenderTransform=new MatrixTransform(d3Matrix.ToMatrix());
+                transformGroup.Children.Add(new MatrixTransform(d3Matrix.ToMatrix()));
             }
-            
+            CurrentRectangle.RenderTransform = transformGroup;
         }
 
         private void RemoveD3Matrix(D3Matrix obj)
         {
-            throw new NotImplementedException();
+            D3Matrixs.Remove(obj);
         }
 
         private void AddD3Matrix()
         {
-            throw new NotImplementedException();
+            D3Matrixs.Add(D3Matrix.FroMatrix(System.Windows.Media.Matrix.Identity));
         }
 
         public ICommand AddCommand { get; set; }

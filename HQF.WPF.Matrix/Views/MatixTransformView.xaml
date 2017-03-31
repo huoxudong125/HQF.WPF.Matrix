@@ -11,7 +11,7 @@
             </Border>
         </DataTemplate>
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -24,31 +24,53 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button >Add</Button>
-            <Button Grid.Column="1">Remove</Button>
+            <Button  Command="{Binding AddCommand}">Add</Button>
+            <Button Grid.Column="1" Command="{Binding RemmoveCommand}"
+                    CommandParameter="{Binding ElementName=ShapeCanvas}">Remove</Button>
             <Button Grid.Column="2" Command="{Binding ApplyCommand}">Apply</Button>
         </Grid>
+        
 
-        <ItemsControl Grid.Row="1" ItemsSource="{Binding Shapes}">
+        <ItemsControl Grid.Row="1" Name="ShapeCanvas"
+                       ItemsSource="{Binding Shapes}">
+            <ItemsControl.Template>
+                <ControlTemplate TargetType="ItemsControl">
+                    <ScrollViewer 
+                        VerticalScrollBarVisibility="Auto" 
+                        HorizontalScrollBarVisibility="Auto">
+                        <ItemsPresenter />
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ItemsControl.Template>
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas/>
+                 
+                    <Canvas />
+                
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
+            
             <ItemsControl.ItemContainerStyle>
                 <Style TargetType="Shape">
-                    <Setter Property="Canvas.Left" Value="{Binding X}"/>
-                    <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                    <Setter Property="Canvas.Left" Value="{Binding X}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Y}" />
                 </Style>
             </ItemsControl.ItemContainerStyle>
             <!--<ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="Black"/>
+                    <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="Black" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>-->
         </ItemsControl>
-        
+
+        <GridSplitter Grid.Row="2"
+                      Height="4"
+                      Background="Red"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Top" />
         <ListBox Grid.Row="2"
+                 Margin="4"
                 ItemsSource="{Binding D3Matrixs}"
                 ItemTemplate="{StaticResource D3Template}" />
     </Grid>
